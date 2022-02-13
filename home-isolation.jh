@@ -1,0 +1,131 @@
+entity Isolation {
+	icmrId String
+    rtpcrId	String
+    ratId String
+    firstName String
+    lastName String
+    latitude String
+    longitude String
+    email String
+    imageUrl String
+    activated Boolean
+    mobileNo String required unique
+    passwordHash String required
+    secondaryContactNo String
+    aadharCardNo String required unique
+    status IsolationStatus
+    age String
+    gender String
+    stateId Long
+    districtId Long
+    talukaId Long
+    cityId Long
+    address String
+    pincode String
+    collectionDate Instant
+    hospitalized Boolean
+    hospitalId Long
+    addressLatitude String
+    addressLongitude String
+    currentLatitude String
+    currentLongitude String
+    hospitalizationDate Instant
+    healthCondition HealthCondition
+    remarks String
+    symptomatic Boolean
+    ccmsLogin String //Record uploaded by
+    selfRegistered Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    isolationStartDate Instant
+    isolationEndDate Instant
+    tvgIsolationUserId Long
+}
+
+enum HealthCondition {
+	STABLE ("Stable")
+    CRITICAL("Critical")
+    RECOVERED("Recovered")
+    DEATH("Death")
+  }
+  
+enum IsolationStatus {
+    HOMEISOLATION("Home Isolation")
+	HOSPITALISED ("Hospitalised")
+  }
+
+entity IsolationDetails {
+    referredDrName String
+    referredDrMobile String
+    prescriptionUrl String
+    reportUrl String
+    remarks String
+    selfRegistered Boolean
+    lastAssessment Instant 
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity Assessment {
+	assessmentDate Instant required
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity Question {
+	question String
+    questionDesc String
+    questionType QuestionType
+    active Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity QuestionsOptions {
+	ansOption String
+    healthCondition HealthCondition
+    active Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+enum QuestionType {
+    FREETEXT("Text")
+	MULTISELECT ("MultiSelection")
+    SINGLE ("Single")
+   
+  }
+
+entity AssessmentAnswer {
+	answer String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+relationship OneToOne {
+ Isolation{isolationDetails} to IsolationDetails
+}
+
+relationship OneToMany {
+ Question{assessmentAnswer} to AssessmentAnswer{question} 
+}
+
+relationship ManyToOne {
+Isolation{isolation} to Isolation
+Assessment{isolation} to Isolation
+AssessmentAnswer{assessment(assessmentDate)} to Assessment
+QuestionsOptions{question(question)} to Question
+}
+// Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg
