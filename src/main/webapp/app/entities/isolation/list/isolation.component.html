@@ -1,0 +1,270 @@
+<div>
+  <h2 id="page-heading" data-cy="IsolationHeading">
+    <span jhiTranslate="isolationmappingApp.isolation.home.title">Isolations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="isolationmappingApp.isolation.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-isolation"
+        [routerLink]="['/isolation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="isolationmappingApp.isolation.home.createLabel"> Create a new Isolation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="isolations?.length === 0">
+    <span jhiTranslate="isolationmappingApp.isolation.home.notFound">No isolations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="isolations && isolations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="icmrId">
+            <span jhiTranslate="isolationmappingApp.isolation.icmrId">Icmr Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rtpcrId">
+            <span jhiTranslate="isolationmappingApp.isolation.rtpcrId">Rtpcr Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ratId">
+            <span jhiTranslate="isolationmappingApp.isolation.ratId">Rat Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <span jhiTranslate="isolationmappingApp.isolation.firstName">First Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <span jhiTranslate="isolationmappingApp.isolation.lastName">Last Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="latitude">
+            <span jhiTranslate="isolationmappingApp.isolation.latitude">Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="longitude">
+            <span jhiTranslate="isolationmappingApp.isolation.longitude">Longitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <span jhiTranslate="isolationmappingApp.isolation.email">Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="imageUrl">
+            <span jhiTranslate="isolationmappingApp.isolation.imageUrl">Image Url</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="activated">
+            <span jhiTranslate="isolationmappingApp.isolation.activated">Activated</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="mobileNo">
+            <span jhiTranslate="isolationmappingApp.isolation.mobileNo">Mobile No</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="passwordHash">
+            <span jhiTranslate="isolationmappingApp.isolation.passwordHash">Password Hash</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="secondaryContactNo">
+            <span jhiTranslate="isolationmappingApp.isolation.secondaryContactNo">Secondary Contact No</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="aadharCardNo">
+            <span jhiTranslate="isolationmappingApp.isolation.aadharCardNo">Aadhar Card No</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <span jhiTranslate="isolationmappingApp.isolation.status">Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="age">
+            <span jhiTranslate="isolationmappingApp.isolation.age">Age</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="gender">
+            <span jhiTranslate="isolationmappingApp.isolation.gender">Gender</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="stateId">
+            <span jhiTranslate="isolationmappingApp.isolation.stateId">State Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="districtId">
+            <span jhiTranslate="isolationmappingApp.isolation.districtId">District Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="talukaId">
+            <span jhiTranslate="isolationmappingApp.isolation.talukaId">Taluka Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cityId">
+            <span jhiTranslate="isolationmappingApp.isolation.cityId">City Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <span jhiTranslate="isolationmappingApp.isolation.address">Address</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pincode">
+            <span jhiTranslate="isolationmappingApp.isolation.pincode">Pincode</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="collectionDate">
+            <span jhiTranslate="isolationmappingApp.isolation.collectionDate">Collection Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospitalized">
+            <span jhiTranslate="isolationmappingApp.isolation.hospitalized">Hospitalized</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospitalId">
+            <span jhiTranslate="isolationmappingApp.isolation.hospitalId">Hospital Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="addressLatitude">
+            <span jhiTranslate="isolationmappingApp.isolation.addressLatitude">Address Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="addressLongitude">
+            <span jhiTranslate="isolationmappingApp.isolation.addressLongitude">Address Longitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="currentLatitude">
+            <span jhiTranslate="isolationmappingApp.isolation.currentLatitude">Current Latitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="currentLongitude">
+            <span jhiTranslate="isolationmappingApp.isolation.currentLongitude">Current Longitude</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hospitalizationDate">
+            <span jhiTranslate="isolationmappingApp.isolation.hospitalizationDate">Hospitalization Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="healthCondition">
+            <span jhiTranslate="isolationmappingApp.isolation.healthCondition">Health Condition</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remarks">
+            <span jhiTranslate="isolationmappingApp.isolation.remarks">Remarks</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="symptomatic">
+            <span jhiTranslate="isolationmappingApp.isolation.symptomatic">Symptomatic</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ccmsLogin">
+            <span jhiTranslate="isolationmappingApp.isolation.ccmsLogin">Ccms Login</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="selfRegistered">
+            <span jhiTranslate="isolationmappingApp.isolation.selfRegistered">Self Registered</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="isolationmappingApp.isolation.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="isolationmappingApp.isolation.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isolationStartDate">
+            <span jhiTranslate="isolationmappingApp.isolation.isolationStartDate">Isolation Start Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isolationEndDate">
+            <span jhiTranslate="isolationmappingApp.isolation.isolationEndDate">Isolation End Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tvgIsolationUserId">
+            <span jhiTranslate="isolationmappingApp.isolation.tvgIsolationUserId">Tvg Isolation User Id</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isolationDetails.id">
+            <span jhiTranslate="isolationmappingApp.isolation.isolationDetails">Isolation Details</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let isolation of isolations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/isolation', isolation.id, 'view']">{{ isolation.id }}</a>
+          </td>
+          <td>{{ isolation.icmrId }}</td>
+          <td>{{ isolation.rtpcrId }}</td>
+          <td>{{ isolation.ratId }}</td>
+          <td>{{ isolation.firstName }}</td>
+          <td>{{ isolation.lastName }}</td>
+          <td>{{ isolation.latitude }}</td>
+          <td>{{ isolation.longitude }}</td>
+          <td>{{ isolation.email }}</td>
+          <td>{{ isolation.imageUrl }}</td>
+          <td>{{ isolation.activated }}</td>
+          <td>{{ isolation.mobileNo }}</td>
+          <td>{{ isolation.passwordHash }}</td>
+          <td>{{ isolation.secondaryContactNo }}</td>
+          <td>{{ isolation.aadharCardNo }}</td>
+          <td jhiTranslate="{{ 'isolationmappingApp.IsolationStatus.' + isolation.status }}">{{ isolation.status }}</td>
+          <td>{{ isolation.age }}</td>
+          <td>{{ isolation.gender }}</td>
+          <td>{{ isolation.stateId }}</td>
+          <td>{{ isolation.districtId }}</td>
+          <td>{{ isolation.talukaId }}</td>
+          <td>{{ isolation.cityId }}</td>
+          <td>{{ isolation.address }}</td>
+          <td>{{ isolation.pincode }}</td>
+          <td>{{ isolation.collectionDate | formatMediumDatetime }}</td>
+          <td>{{ isolation.hospitalized }}</td>
+          <td>{{ isolation.hospitalId }}</td>
+          <td>{{ isolation.addressLatitude }}</td>
+          <td>{{ isolation.addressLongitude }}</td>
+          <td>{{ isolation.currentLatitude }}</td>
+          <td>{{ isolation.currentLongitude }}</td>
+          <td>{{ isolation.hospitalizationDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'isolationmappingApp.HealthCondition.' + isolation.healthCondition }}">{{ isolation.healthCondition }}</td>
+          <td>{{ isolation.remarks }}</td>
+          <td>{{ isolation.symptomatic }}</td>
+          <td>{{ isolation.ccmsLogin }}</td>
+          <td>{{ isolation.selfRegistered }}</td>
+          <td>{{ isolation.lastModified | formatMediumDatetime }}</td>
+          <td>{{ isolation.lastModifiedBy }}</td>
+          <td>{{ isolation.isolationStartDate | formatMediumDatetime }}</td>
+          <td>{{ isolation.isolationEndDate | formatMediumDatetime }}</td>
+          <td>{{ isolation.tvgIsolationUserId }}</td>
+          <td>
+            <div *ngIf="isolation.isolationDetails">
+              <a [routerLink]="['/isolation-details', isolation.isolationDetails?.id, 'view']">{{ isolation.isolationDetails?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/isolation', isolation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/isolation', isolation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(isolation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="isolations && isolations.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

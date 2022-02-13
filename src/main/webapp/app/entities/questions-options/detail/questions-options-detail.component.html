@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="questionsOptions">
+      <h2 data-cy="questionsOptionsDetailsHeading">
+        <span jhiTranslate="isolationmappingApp.questionsOptions.detail.title">Questions Options</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ questionsOptions.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.questionsOptions.ansOption">Ans Option</span></dt>
+        <dd>
+          <span>{{ questionsOptions.ansOption }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.questionsOptions.healthCondition">Health Condition</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'isolationmappingApp.HealthCondition.' + questionsOptions.healthCondition }}">{{
+            questionsOptions.healthCondition
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.questionsOptions.active">Active</span></dt>
+        <dd>
+          <span>{{ questionsOptions.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.questionsOptions.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ questionsOptions.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.questionsOptions.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ questionsOptions.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.questionsOptions.question">Question</span></dt>
+        <dd>
+          <div *ngIf="questionsOptions.question">
+            <a [routerLink]="['/question', questionsOptions.question?.id, 'view']">{{ questionsOptions.question?.question }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/questions-options', questionsOptions.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="assessmentAnswer">
+      <h2 data-cy="assessmentAnswerDetailsHeading">
+        <span jhiTranslate="isolationmappingApp.assessmentAnswer.detail.title">Assessment Answer</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ assessmentAnswer.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessmentAnswer.answer">Answer</span></dt>
+        <dd>
+          <span>{{ assessmentAnswer.answer }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessmentAnswer.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ assessmentAnswer.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessmentAnswer.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ assessmentAnswer.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessmentAnswer.assessment">Assessment</span></dt>
+        <dd>
+          <div *ngIf="assessmentAnswer.assessment">
+            <a [routerLink]="['/assessment', assessmentAnswer.assessment?.id, 'view']">{{ assessmentAnswer.assessment?.assessmentDate }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessmentAnswer.question">Question</span></dt>
+        <dd>
+          <div *ngIf="assessmentAnswer.question">
+            <a [routerLink]="['/question', assessmentAnswer.question?.id, 'view']">{{ assessmentAnswer.question?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/assessment-answer', assessmentAnswer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

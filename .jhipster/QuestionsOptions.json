@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20220213101930",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "questions_options",
+  "fields": [
+    {
+      "fieldName": "ansOption",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "healthCondition",
+      "fieldType": "HealthCondition",
+      "fieldValues": "STABLE (Stable),CRITICAL (Critical),RECOVERED (Recovered),DEATH (Death)"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "QuestionsOptions",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "question",
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "questionsOptions",
+      "relationshipName": "question",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

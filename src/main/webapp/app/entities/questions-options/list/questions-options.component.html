@@ -1,0 +1,125 @@
+<div>
+  <h2 id="page-heading" data-cy="QuestionsOptionsHeading">
+    <span jhiTranslate="isolationmappingApp.questionsOptions.home.title">Questions Options</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="isolationmappingApp.questionsOptions.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-questions-options"
+        [routerLink]="['/questions-options/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="isolationmappingApp.questionsOptions.home.createLabel"> Create a new Questions Options </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="questionsOptions?.length === 0">
+    <span jhiTranslate="isolationmappingApp.questionsOptions.home.notFound">No questionsOptions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="questionsOptions && questionsOptions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="ansOption">
+            <span jhiTranslate="isolationmappingApp.questionsOptions.ansOption">Ans Option</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="healthCondition">
+            <span jhiTranslate="isolationmappingApp.questionsOptions.healthCondition">Health Condition</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="active">
+            <span jhiTranslate="isolationmappingApp.questionsOptions.active">Active</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="isolationmappingApp.questionsOptions.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="isolationmappingApp.questionsOptions.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="question.question">
+            <span jhiTranslate="isolationmappingApp.questionsOptions.question">Question</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let questionsOptions of questionsOptions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/questions-options', questionsOptions.id, 'view']">{{ questionsOptions.id }}</a>
+          </td>
+          <td>{{ questionsOptions.ansOption }}</td>
+          <td jhiTranslate="{{ 'isolationmappingApp.HealthCondition.' + questionsOptions.healthCondition }}">
+            {{ questionsOptions.healthCondition }}
+          </td>
+          <td>{{ questionsOptions.active }}</td>
+          <td>{{ questionsOptions.lastModified | formatMediumDatetime }}</td>
+          <td>{{ questionsOptions.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="questionsOptions.question">
+              <a [routerLink]="['/question', questionsOptions.question?.id, 'view']">{{ questionsOptions.question?.question }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/questions-options', questionsOptions.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/questions-options', questionsOptions.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(questionsOptions)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="questionsOptions && questionsOptions.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

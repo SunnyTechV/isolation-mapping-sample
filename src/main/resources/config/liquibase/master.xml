@@ -15,7 +15,17 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101926_added_entity_Isolation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101927_added_entity_IsolationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101928_added_entity_Assessment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101929_added_entity_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101930_added_entity_QuestionsOptions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101931_added_entity_AssessmentAnswer.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220213101926_added_entity_constraints_Isolation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101928_added_entity_constraints_Assessment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101930_added_entity_constraints_QuestionsOptions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220213101931_added_entity_constraints_AssessmentAnswer.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

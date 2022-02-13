@@ -1,0 +1,32 @@
+{
+  "isolationmappingApp": {
+    "isolationDetails": {
+      "home": {
+        "title": "Isolation Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Isolation Details",
+        "createOrEditLabel": "Create or edit a Isolation Details",
+        "notFound": "No Isolation Details found"
+      },
+      "created": "A new Isolation Details is created with identifier {{ param }}",
+      "updated": "A Isolation Details is updated with identifier {{ param }}",
+      "deleted": "A Isolation Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Isolation Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Isolation Details"
+      },
+      "id": "ID",
+      "referredDrName": "Referred Dr Name",
+      "referredDrMobile": "Referred Dr Mobile",
+      "prescriptionUrl": "Prescription Url",
+      "reportUrl": "Report Url",
+      "remarks": "Remarks",
+      "selfRegistered": "Self Registered",
+      "lastAssessment": "Last Assessment",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

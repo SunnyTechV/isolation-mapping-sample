@@ -1,0 +1,193 @@
+{
+  "applications": "*",
+  "changelogDate": "20220213101926",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "isolation",
+  "fields": [
+    {
+      "fieldName": "icmrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rtpcrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ratId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activated",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "passwordHash",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "secondaryContactNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aadharCardNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "IsolationStatus",
+      "fieldValues": "HOMEISOLATION (Home Isolation),HOSPITALISED (Hospitalised)"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "districtId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "talukaId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "cityId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pincode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "collectionDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "hospitalized",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "hospitalId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "addressLatitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addressLongitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currentLatitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currentLongitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hospitalizationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "healthCondition",
+      "fieldType": "HealthCondition",
+      "fieldValues": "STABLE (Stable),CRITICAL (Critical),RECOVERED (Recovered),DEATH (Death)"
+    },
+    {
+      "fieldName": "remarks",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "symptomatic",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "ccmsLogin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "selfRegistered",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isolationStartDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isolationEndDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "tvgIsolationUserId",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Isolation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "isolationDetails",
+      "otherEntityRelationshipName": "isolation",
+      "ownerSide": true,
+      "relationshipName": "isolationDetails",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
