@@ -1,0 +1,28 @@
+{
+  "isolationmappingApp": {
+    "assessmentAnswer": {
+      "home": {
+        "title": "Assessment Answers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Assessment Answer",
+        "createOrEditLabel": "Create or edit a Assessment Answer",
+        "notFound": "No Assessment Answers found"
+      },
+      "created": "A new Assessment Answer is created with identifier {{ param }}",
+      "updated": "A Assessment Answer is updated with identifier {{ param }}",
+      "deleted": "A Assessment Answer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Assessment Answer {{ id }}?"
+      },
+      "detail": {
+        "title": "Assessment Answer"
+      },
+      "id": "ID",
+      "answer": "Answer",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "assessment": "Assessment",
+      "question": "Question"
+    }
+  }
+}

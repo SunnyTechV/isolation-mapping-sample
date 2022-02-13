@@ -1,0 +1,10 @@
+{
+  "isolationmappingApp": {
+    "QuestionType": {
+      "null": "",
+      "FREETEXT": "Text",
+      "MULTISELECT": "MultiSelection",
+      "SINGLE": "Single"
+    }
+  }
+}

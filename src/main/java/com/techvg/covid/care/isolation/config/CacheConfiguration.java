@@ -48,6 +48,13 @@ public class CacheConfiguration {
             createCache(cm, com.techvg.covid.care.isolation.domain.User.class.getName());
             createCache(cm, com.techvg.covid.care.isolation.domain.Authority.class.getName());
             createCache(cm, com.techvg.covid.care.isolation.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.techvg.covid.care.isolation.domain.Isolation.class.getName());
+            createCache(cm, com.techvg.covid.care.isolation.domain.IsolationDetails.class.getName());
+            createCache(cm, com.techvg.covid.care.isolation.domain.Assessment.class.getName());
+            createCache(cm, com.techvg.covid.care.isolation.domain.Question.class.getName());
+            createCache(cm, com.techvg.covid.care.isolation.domain.Question.class.getName() + ".assessmentAnswers");
+            createCache(cm, com.techvg.covid.care.isolation.domain.QuestionsOptions.class.getName());
+            createCache(cm, com.techvg.covid.care.isolation.domain.AssessmentAnswer.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

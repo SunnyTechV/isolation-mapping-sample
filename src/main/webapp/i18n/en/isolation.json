@@ -1,0 +1,65 @@
+{
+  "isolationmappingApp": {
+    "isolation": {
+      "home": {
+        "title": "Isolations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Isolation",
+        "createOrEditLabel": "Create or edit a Isolation",
+        "notFound": "No Isolations found"
+      },
+      "created": "A new Isolation is created with identifier {{ param }}",
+      "updated": "A Isolation is updated with identifier {{ param }}",
+      "deleted": "A Isolation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Isolation {{ id }}?"
+      },
+      "detail": {
+        "title": "Isolation"
+      },
+      "id": "ID",
+      "icmrId": "Icmr Id",
+      "rtpcrId": "Rtpcr Id",
+      "ratId": "Rat Id",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "email": "Email",
+      "imageUrl": "Image Url",
+      "activated": "Activated",
+      "mobileNo": "Mobile No",
+      "passwordHash": "Password Hash",
+      "secondaryContactNo": "Secondary Contact No",
+      "aadharCardNo": "Aadhar Card No",
+      "status": "Status",
+      "age": "Age",
+      "gender": "Gender",
+      "stateId": "State Id",
+      "districtId": "District Id",
+      "talukaId": "Taluka Id",
+      "cityId": "City Id",
+      "address": "Address",
+      "pincode": "Pincode",
+      "collectionDate": "Collection Date",
+      "hospitalized": "Hospitalized",
+      "hospitalId": "Hospital Id",
+      "addressLatitude": "Address Latitude",
+      "addressLongitude": "Address Longitude",
+      "currentLatitude": "Current Latitude",
+      "currentLongitude": "Current Longitude",
+      "hospitalizationDate": "Hospitalization Date",
+      "healthCondition": "Health Condition",
+      "remarks": "Remarks",
+      "symptomatic": "Symptomatic",
+      "ccmsLogin": "Ccms Login",
+      "selfRegistered": "Self Registered",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "isolationStartDate": "Isolation Start Date",
+      "isolationEndDate": "Isolation End Date",
+      "tvgIsolationUserId": "Tvg Isolation User Id",
+      "isolationDetails": "Isolation Details"
+    }
+  }
+}

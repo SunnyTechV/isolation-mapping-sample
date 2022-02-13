@@ -1,0 +1,11 @@
+{
+  "isolationmappingApp": {
+    "HealthCondition": {
+      "null": "",
+      "STABLE": "Stable",
+      "CRITICAL": "Critical",
+      "RECOVERED": "Recovered",
+      "DEATH": "Death"
+    }
+  }
+}

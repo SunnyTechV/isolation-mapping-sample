@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Isolation.
+    -->
+    <changeSet id="20220213101926-1" author="jhipster">
+        <createTable tableName="isolation">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="icmr_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rtpcr_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rat_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="latitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="longitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="activated" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="mobile_no" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_isolation__mobile_no" />
+            </column>
+            <column name="password_hash" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="secondary_contact_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="aadhar_card_no" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_isolation__aadhar_card_no" />
+            </column>
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="age" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="gender" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="state_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="district_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="taluka_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="city_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pincode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="collection_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="hospitalized" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="hospital_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="address_latitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="address_longitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="current_latitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="current_longitude" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hospitalization_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="health_condition" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="remarks" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="symptomatic" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="ccms_login" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="self_registered" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="isolation_start_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="isolation_end_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="tvg_isolation_user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="isolation_details_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_isolation__isolation_details_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="isolation" columnName="collection_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="isolation" columnName="hospitalization_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="isolation" columnName="last_modified" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="isolation" columnName="isolation_start_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="isolation" columnName="isolation_end_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220213101926-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/isolation.csv"
+                  separator=";"
+                  tableName="isolation"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="icmr_id" type="string"/>
+            <column name="rtpcr_id" type="string"/>
+            <column name="rat_id" type="string"/>
+            <column name="first_name" type="string"/>
+            <column name="last_name" type="string"/>
+            <column name="latitude" type="string"/>
+            <column name="longitude" type="string"/>
+            <column name="email" type="string"/>
+            <column name="image_url" type="string"/>
+            <column name="activated" type="boolean"/>
+            <column name="mobile_no" type="string"/>
+            <column name="password_hash" type="string"/>
+            <column name="secondary_contact_no" type="string"/>
+            <column name="aadhar_card_no" type="string"/>
+            <column name="status" type="string"/>
+            <column name="age" type="string"/>
+            <column name="gender" type="string"/>
+            <column name="state_id" type="numeric"/>
+            <column name="district_id" type="numeric"/>
+            <column name="taluka_id" type="numeric"/>
+            <column name="city_id" type="numeric"/>
+            <column name="address" type="string"/>
+            <column name="pincode" type="string"/>
+            <column name="collection_date" type="date"/>
+            <column name="hospitalized" type="boolean"/>
+            <column name="hospital_id" type="numeric"/>
+            <column name="address_latitude" type="string"/>
+            <column name="address_longitude" type="string"/>
+            <column name="current_latitude" type="string"/>
+            <column name="current_longitude" type="string"/>
+            <column name="hospitalization_date" type="date"/>
+            <column name="health_condition" type="string"/>
+            <column name="remarks" type="string"/>
+            <column name="symptomatic" type="boolean"/>
+            <column name="ccms_login" type="string"/>
+            <column name="self_registered" type="boolean"/>
+            <column name="last_modified" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="isolation_start_date" type="date"/>
+            <column name="isolation_end_date" type="date"/>
+            <column name="tvg_isolation_user_id" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

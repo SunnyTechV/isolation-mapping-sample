@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-isolation-details-heading"
+        data-cy="IsolationDetailsCreateUpdateHeading"
+        jhiTranslate="isolationmappingApp.isolationDetails.home.createOrEditLabel"
+      >
+        Create or edit a Isolation Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.referredDrName" for="field_referredDrName"
+            >Referred Dr Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referredDrName"
+            id="field_referredDrName"
+            data-cy="referredDrName"
+            formControlName="referredDrName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="isolationmappingApp.isolationDetails.referredDrMobile"
+            for="field_referredDrMobile"
+            >Referred Dr Mobile</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referredDrMobile"
+            id="field_referredDrMobile"
+            data-cy="referredDrMobile"
+            formControlName="referredDrMobile"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.prescriptionUrl" for="field_prescriptionUrl"
+            >Prescription Url</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prescriptionUrl"
+            id="field_prescriptionUrl"
+            data-cy="prescriptionUrl"
+            formControlName="prescriptionUrl"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.reportUrl" for="field_reportUrl"
+            >Report Url</label
+          >
+          <input type="text" class="form-control" name="reportUrl" id="field_reportUrl" data-cy="reportUrl" formControlName="reportUrl" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.remarks" for="field_remarks">Remarks</label>
+          <input type="text" class="form-control" name="remarks" id="field_remarks" data-cy="remarks" formControlName="remarks" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.selfRegistered" for="field_selfRegistered"
+            >Self Registered</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="selfRegistered"
+            id="field_selfRegistered"
+            data-cy="selfRegistered"
+            formControlName="selfRegistered"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.lastAssessment" for="field_lastAssessment"
+            >Last Assessment</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastAssessment"
+              data-cy="lastAssessment"
+              type="datetime-local"
+              class="form-control"
+              name="lastAssessment"
+              formControlName="lastAssessment"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="isolationmappingApp.isolationDetails.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

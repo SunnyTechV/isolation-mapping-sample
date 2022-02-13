@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="assessment">
+      <h2 data-cy="assessmentDetailsHeading"><span jhiTranslate="isolationmappingApp.assessment.detail.title">Assessment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ assessment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessment.assessmentDate">Assessment Date</span></dt>
+        <dd>
+          <span>{{ assessment.assessmentDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessment.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ assessment.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessment.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ assessment.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.assessment.isolation">Isolation</span></dt>
+        <dd>
+          <div *ngIf="assessment.isolation">
+            <a [routerLink]="['/isolation', assessment.isolation?.id, 'view']">{{ assessment.isolation?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/assessment', assessment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

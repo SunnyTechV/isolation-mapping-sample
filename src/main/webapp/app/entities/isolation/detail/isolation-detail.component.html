@@ -1,0 +1,200 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="isolation">
+      <h2 data-cy="isolationDetailsHeading"><span jhiTranslate="isolationmappingApp.isolation.detail.title">Isolation</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ isolation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.icmrId">Icmr Id</span></dt>
+        <dd>
+          <span>{{ isolation.icmrId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.rtpcrId">Rtpcr Id</span></dt>
+        <dd>
+          <span>{{ isolation.rtpcrId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.ratId">Rat Id</span></dt>
+        <dd>
+          <span>{{ isolation.ratId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ isolation.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ isolation.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.latitude">Latitude</span></dt>
+        <dd>
+          <span>{{ isolation.latitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.longitude">Longitude</span></dt>
+        <dd>
+          <span>{{ isolation.longitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.email">Email</span></dt>
+        <dd>
+          <span>{{ isolation.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.imageUrl">Image Url</span></dt>
+        <dd>
+          <span>{{ isolation.imageUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.activated">Activated</span></dt>
+        <dd>
+          <span>{{ isolation.activated }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.mobileNo">Mobile No</span></dt>
+        <dd>
+          <span>{{ isolation.mobileNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.passwordHash">Password Hash</span></dt>
+        <dd>
+          <span>{{ isolation.passwordHash }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.secondaryContactNo">Secondary Contact No</span></dt>
+        <dd>
+          <span>{{ isolation.secondaryContactNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.aadharCardNo">Aadhar Card No</span></dt>
+        <dd>
+          <span>{{ isolation.aadharCardNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'isolationmappingApp.IsolationStatus.' + isolation.status }}">{{ isolation.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.age">Age</span></dt>
+        <dd>
+          <span>{{ isolation.age }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.gender">Gender</span></dt>
+        <dd>
+          <span>{{ isolation.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.stateId">State Id</span></dt>
+        <dd>
+          <span>{{ isolation.stateId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.districtId">District Id</span></dt>
+        <dd>
+          <span>{{ isolation.districtId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.talukaId">Taluka Id</span></dt>
+        <dd>
+          <span>{{ isolation.talukaId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.cityId">City Id</span></dt>
+        <dd>
+          <span>{{ isolation.cityId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.address">Address</span></dt>
+        <dd>
+          <span>{{ isolation.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.pincode">Pincode</span></dt>
+        <dd>
+          <span>{{ isolation.pincode }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.collectionDate">Collection Date</span></dt>
+        <dd>
+          <span>{{ isolation.collectionDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.hospitalized">Hospitalized</span></dt>
+        <dd>
+          <span>{{ isolation.hospitalized }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.hospitalId">Hospital Id</span></dt>
+        <dd>
+          <span>{{ isolation.hospitalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.addressLatitude">Address Latitude</span></dt>
+        <dd>
+          <span>{{ isolation.addressLatitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.addressLongitude">Address Longitude</span></dt>
+        <dd>
+          <span>{{ isolation.addressLongitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.currentLatitude">Current Latitude</span></dt>
+        <dd>
+          <span>{{ isolation.currentLatitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.currentLongitude">Current Longitude</span></dt>
+        <dd>
+          <span>{{ isolation.currentLongitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.hospitalizationDate">Hospitalization Date</span></dt>
+        <dd>
+          <span>{{ isolation.hospitalizationDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.healthCondition">Health Condition</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'isolationmappingApp.HealthCondition.' + isolation.healthCondition }}">{{
+            isolation.healthCondition
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.remarks">Remarks</span></dt>
+        <dd>
+          <span>{{ isolation.remarks }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.symptomatic">Symptomatic</span></dt>
+        <dd>
+          <span>{{ isolation.symptomatic }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.ccmsLogin">Ccms Login</span></dt>
+        <dd>
+          <span>{{ isolation.ccmsLogin }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.selfRegistered">Self Registered</span></dt>
+        <dd>
+          <span>{{ isolation.selfRegistered }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ isolation.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ isolation.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.isolationStartDate">Isolation Start Date</span></dt>
+        <dd>
+          <span>{{ isolation.isolationStartDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.isolationEndDate">Isolation End Date</span></dt>
+        <dd>
+          <span>{{ isolation.isolationEndDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.tvgIsolationUserId">Tvg Isolation User Id</span></dt>
+        <dd>
+          <span>{{ isolation.tvgIsolationUserId }}</span>
+        </dd>
+        <dt><span jhiTranslate="isolationmappingApp.isolation.isolationDetails">Isolation Details</span></dt>
+        <dd>
+          <div *ngIf="isolation.isolationDetails">
+            <a [routerLink]="['/isolation-details', isolation.isolationDetails?.id, 'view']">{{ isolation.isolationDetails?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/isolation', isolation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

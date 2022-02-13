@@ -1,0 +1,29 @@
+{
+  "isolationmappingApp": {
+    "questionsOptions": {
+      "home": {
+        "title": "Questions Options",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Questions Options",
+        "createOrEditLabel": "Create or edit a Questions Options",
+        "notFound": "No Questions Options found"
+      },
+      "created": "A new Questions Options is created with identifier {{ param }}",
+      "updated": "A Questions Options is updated with identifier {{ param }}",
+      "deleted": "A Questions Options is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Questions Options {{ id }}?"
+      },
+      "detail": {
+        "title": "Questions Options"
+      },
+      "id": "ID",
+      "ansOption": "Ans Option",
+      "healthCondition": "Health Condition",
+      "active": "Active",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "question": "Question"
+    }
+  }
+}
